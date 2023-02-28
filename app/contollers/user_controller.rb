@@ -1,0 +1,3 @@
+class UserContoller < AppController 
+    
+end
