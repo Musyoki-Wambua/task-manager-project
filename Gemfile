@@ -1,17 +1,12 @@
 source "https://rubygems.org"
 
-# #Read content of the ruby version file
-# ruby File.read('.ruby-version').strip
-
-
-# A DSL for quickly creating web applications
 gem 'sinatra', '~> 3.0', '>= 3.0.5'
 
 # An object-relational mapper
 gem 'activerecord', '~> 7.0', '>= 7.0.4.2'
 
 # Configures common Rake tasks for working with Active Record
-gem "sinatra-activerecord"
+gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.26'
 
 # Rack middleware. Used specifically for parsing the request body into params.
 gem "rack-contrib", "~> 2.3"
@@ -37,10 +32,15 @@ gem 'require_all', '~> 3.0'
 # These gems will only be used when we are running the application locally
 group :development do
   # Used to generate seed data
-  gem "faker", "~> 2.18"
+  gem 'faker', '~> 3.1', '>= 3.1.1'
 
   # Auto-reload the server when files are changed
-  gem "rerun"
+  gem 'rerun', '~> 0.14.0'
 
   gem "pry"
+end
+
+group :test do
+    gem 'rack-test', '~> 2.0', '>= 2.0.2'
+    gem 'rspec', '~> 3.12'
 end
