@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-#Read content of the ruby version file
-ruby File.read('.ruby-version').strip
+# #Read content of the ruby version file
+# ruby File.read('.ruby-version').strip
 
 
 # A DSL for quickly creating web applications
