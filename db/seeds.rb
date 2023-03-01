@@ -1,6 +1,6 @@
-puts "deleting Old Data..."
-User.destroy_all
-Task.destroy_all
+# puts "deleting Old Data..."
+# User.destroy_all
+# Task.destroy_all
 
 puts "Seeding..."
 
