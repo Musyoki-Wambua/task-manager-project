@@ -40,4 +40,17 @@ class TaskController < AppController
         }.to_json]        
        end
     end
+
+    delete '/tasks/:id' do
+        begin
+            task = Task.find(params[:id])
+            task.destroy 
+            [201, {message: "Task deleted successfully"}.to_json]
+        rescue => exception
+            [422, {
+                error: "Error occured while deleting the task"
+            }.to_json]        
+        end
+    end
+
 end
