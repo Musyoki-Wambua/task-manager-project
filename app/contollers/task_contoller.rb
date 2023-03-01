@@ -22,9 +22,22 @@ class TaskController < AppController
         rescue => exception
             [422, {
                 error: "Error occurred creating a new Task!"
-            }.to_json]
-            
-        end
-        
+            }.to_json]            
+        end        
+    end
+
+    patch '/tasks/:id' do 
+       begin
+        task = Task.find(params[:id])
+        task.update(
+            description: params[:description],
+            due: params[:due]
+        )
+        [201, {message: "Task updated successfully" }.to_json]        
+       rescue => exception
+        [422, {
+            error: "Error occured updating a task"
+        }.to_json]        
+       end
     end
 end
