@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 # Require all files in a folder
 gem 'require_all', '~> 3.0'
 
+gem 'rack-cors'
+
+
 # These gems will only be used when we are running the application locally
 group :development do
   # Used to generate seed data

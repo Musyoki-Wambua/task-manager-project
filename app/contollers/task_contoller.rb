@@ -1,11 +1,38 @@
 class TaskController < AppController 
     
     get '/tasks' do 
+        begin
+            tasks = user.tasks.to_json            
+        rescue => exception
+            [422, {
+                error: "Unauthorized"
+            }.to_json]
+            
+        end
         task = Task.all 
         task.to_json(only: [:id, :title, :description, :due, :createdAt, :status])
     end
 
-    post '/tasks/create' do 
+    get '/tasks/day' do 
+        today = Time.now 
+        tasks = Task.where(due: today)
+        tasks.to_json(only: [:id, :title, :description, :due])
+    end
+
+    get '/tasks/:id' do 
+        begin
+            task = Task.find(params[:id])
+            task.to_json(only: [:id, :title, :description, :due, :status])
+        rescue => exception
+            [422, {
+                error: "No record in the Database"
+            }.to_json]
+            
+        end
+
+    end
+
+    post '/tasks' do 
         # data = JSON.parse(request.body.read)
 
         begin
@@ -30,6 +57,7 @@ class TaskController < AppController
        begin
         task = Task.find(params[:id])
         task.update(
+            title: params[:title],
             description: params[:description],
             due: params[:due]
         )
