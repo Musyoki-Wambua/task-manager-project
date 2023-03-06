@@ -1,4 +1,4 @@
-class TaskController < AppController 
+class TaskController < ApplicationController 
     
     get '/tasks' do 
         begin
