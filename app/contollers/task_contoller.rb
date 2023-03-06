@@ -10,7 +10,7 @@ class TaskController < AppController
             
         end
         task = Task.all 
-        task.to_json(only: [:id, :title, :description, :due, :createdAt, :status])
+        task.to_json(only: [:id, :title, :description, :user_id, :due, :createdAt, :status])
     end
 
     get '/tasks/day' do 

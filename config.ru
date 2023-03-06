@@ -11,4 +11,4 @@ require_relative './config/environment'
 use Rack::JSONBodyParser
 
 use TaskController
-run UserContoller
+run UserController

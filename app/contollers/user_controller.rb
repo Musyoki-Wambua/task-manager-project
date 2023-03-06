@@ -1,4 +1,4 @@
-class UserContoller < AppController 
+class UserController < AppController 
 
     # before do 
     #     begin
