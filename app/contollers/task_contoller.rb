@@ -33,7 +33,7 @@ class TaskController < ApplicationController
     end
 
     post '/tasks' do 
-        # data = JSON.parse(request.body.read)
+        data = JSON.parse(request.body.read)
 
         begin
             # today = Time.now
